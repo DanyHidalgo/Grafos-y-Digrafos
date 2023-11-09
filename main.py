@@ -1,4 +1,4 @@
-from grafos import Node, LinkedList
+from grafos import Node, Grafos
 
 
 # Nodes instantiation
@@ -10,11 +10,11 @@ node_e = Node('E')
 node_f = Node('F')
 
 # Node in memory
-# print(node_a)
+print(node_a)
 # print(id(node_a))
 
 # Create LL
-ll = LinkedList()
+ll = Grafos()
 print(ll)
 
 # Insert at beginning

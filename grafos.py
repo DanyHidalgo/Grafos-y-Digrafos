@@ -12,14 +12,17 @@ class Node:
     
     def __init__(self, data: str):
         self.data = data
-        self.next = None
+        self.arista = [] 
+
+        #Arista = Direcciones 
+        #Nodo = Vertice 
 
 
     def __repr__(self):
-        return '| Data: {} |'.format(self.data)
+        return '| Data: {} Aristas: {} |'.format(self.data, self.arista)
 
 
-class LinkedList:
+class Grafos:
     '''
     Linked List object.
 
