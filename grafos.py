@@ -1,3 +1,6 @@
+import pandas as pd
+import numpy as np
+
 class Node:
     
     def __init__(self, data: str):
@@ -50,3 +53,20 @@ class Grafos:
         self.nodes.append(new_node)
         self.nodes.append(conection_node)
 
+
+
+    def lista_adyacencia_a_matriz(self, lista_adyacencia):
+        num_nodos = len(lista_adyacencia)
+
+        # Crea una matriz de adyacencia llena de ceros
+        matriz_adyacencia = np.zeros((num_nodos, num_nodos))
+
+        # Rellena la matriz de adyacencia con 1s donde hay conexiones en la lista de adyacencia
+        for nodo, vecinos in enumerate(lista_adyacencia):
+            for vecino in vecinos:
+                matriz_adyacencia[nodo][vecino] = 1
+
+        # Crea un DataFrame de Pandas a partir de la matriz de adyacencia
+        df = pd.DataFrame(matriz_adyacencia, index=range(num_nodos), columns=range(num_nodos))
+
+        return df

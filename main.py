@@ -17,10 +17,12 @@ print(node_a)
 ll = Grafos()
 
 # Insert at beginning
-ll.insert(node_a,node_b)\
+ll.insert(node_a,node_b)
 
 print(node_a)
 print(node_b)
 print(ll.nodes)
 ll.lista_adyasecente()
-print(ll.lista_adyascencia)
+n = ll.lista_adyascencia
+print(n)
+ll.lista_adyacencia_a_matriz(n)
