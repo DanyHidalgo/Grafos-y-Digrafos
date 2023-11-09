@@ -15,38 +15,12 @@ print(node_a)
 
 # Create LL
 ll = Grafos()
-print(ll)
 
 # Insert at beginning
-ll.insert_at_beginning(node_c)
-print(ll)
-ll.insert_at_beginning(node_b)
-print(ll)
-ll.insert_at_beginning(node_a)
-print(ll)
-ll.insert_at_beginning(node_d)
-print(ll)
+ll.insert(node_a,node_b)\
 
-# Insert at end
-ll.insert_at_end(node_e)
-print(ll)
-
-# Insert before
-ll.insert_before('A', node_f)
-print(ll)
-
-node_g = Node('G')
-ll.insert_before('D', node_g)
-print(ll)
-
-node_h = Node('H')
-ll.insert_before('E', node_h)
-print(ll)
-
-# Delete a given node
-ll.delete('E')
-print(ll)
-ll.delete('D')
-print(ll)
-ll.delete('C')
-print(ll)
+print(node_a)
+print(node_b)
+print(ll.nodes)
+ll.lista_adyasecente()
+print(ll.lista_adyascencia)
