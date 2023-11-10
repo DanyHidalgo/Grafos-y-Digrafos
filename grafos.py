@@ -48,7 +48,7 @@ class Grafos:
         
 
     def insert(self, new_node: Node, connection_node: Node):
-        # Verifica si los nodos ya existen en el grafo
+    # Verifica si los nodos ya existen en el grafo
         if new_node not in self.nodes:
             self.nodes.append(new_node)
             self.nodo_a_indice[new_node] = len(self.nodes) - 1
@@ -59,29 +59,27 @@ class Grafos:
             self.nodo_a_indice[connection_node] = len(self.nodes) - 1
             print(f"Agregado nuevo nodo: {connection_node.data} con índice {self.nodo_a_indice[connection_node]}")
 
-        new_node.arista.append(connection_node.data)
-        connection_node.arista.append(new_node.data)
+        new_node.arista.append(connection_node)
+        connection_node.arista.append(new_node)
 
 
 
-    def lista_adyacencia_a_matriz(self, lista_adyacencia):
+
+    def lista_adyacencia_a_matriz(self):
         num_nodos = len(self.nodes)
 
         # Crea una matriz de adyacencia llena de ceros
         matriz_adyacencia = np.zeros((num_nodos, num_nodos))
 
-        # Rellena la matriz de adyacencia con 1s donde hay conexiones en la lista de adyacencia
-        for nodo, vecinos in enumerate(lista_adyacencia):
-            if nodo in self.nodo_a_indice:
-                for vecino in vecinos:
-                    if vecino in self.nodo_a_indice:
-                        matriz_adyacencia[self.nodo_a_indice[nodo]][self.nodo_a_indice[vecino]] = 1
-            else:
-                # Aquí puedes manejar el caso donde un nodo no está en el diccionario (opcional)
-                print(f"El nodo {nodo} no está en el diccionario")
+        for nodo in self.nodes:
+            indice_nodo = self.nodo_a_indice[nodo]
+            for vecino in nodo.arista:
+                indice_vecino = self.nodo_a_indice[vecino]
+                matriz_adyacencia[indice_nodo][indice_vecino] = 1
 
         # Crea un DataFrame de Pandas a partir de la matriz de adyacencia
         df = pd.DataFrame(matriz_adyacencia, index=range(num_nodos), columns=range(num_nodos))
 
         return df
+
 
