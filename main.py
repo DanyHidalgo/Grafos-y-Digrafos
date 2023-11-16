@@ -1,4 +1,5 @@
 from grafos import Node, Grafos
+from digrafo import NodeD, Digrafos
 
 
 # Nodes instantiation
@@ -13,20 +14,47 @@ node_f = Node('F')
 print(node_a)
 # print(id(node_a))
 
-# Create LL
-ll = Grafos()
+print('--------------------GRAFOS--------------------')
+# Create Grafo
+grafo = Grafos()
 
 # Insert at beginning
-ll.insert(node_a, node_b)
+grafo.insert(node_a, node_b)
 
 print(node_a)
 print(node_b)
-print(ll.nodes)
-ll.lista_adyasecente()
-lista_adyacencia = ll.lista_adyascencia
+print(grafo.nodes)
+grafo.lista_adyasecente()
+lista_adyacencia = grafo.lista_adyascencia
 print(lista_adyacencia)
-matriz_adyacencia = ll.lista_adyacencia_a_matriz()
+matriz_adyacencia = grafo.lista_adyacencia_a_matriz()
 
 print(matriz_adyacencia)
 
 print(node_a.arista)
+
+
+
+print('-------------------DIGRAFOS-------------------')
+
+node_a = NodeD('A')
+node_b = NodeD('B')
+node_c = NodeD('C')
+node_d = NodeD('D')
+node_e = NodeD('E')
+node_f = NodeD('F')
+digrafo = Digrafos()
+
+digrafo.insert(node_a, node_b)
+
+print(node_a)
+print(node_b)
+print(digrafo.nodes)
+
+matriz_adyacencia_digrafo = digrafo.lista_adyacencia_a_matriz()
+
+print(matriz_adyacencia_digrafo)
+
+
+
+
